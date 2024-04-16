@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>$em Library Test</title>
+        <style>
+            #output {
+                margin-top: 20px;
+                padding: 10px;
+                background-color: #f4f4f4;
+                border: 1px solid #ddd;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Input for testing dynamic input handling -->
+        <input
+            type="text"
+            id="textInput"
+            placeholder="Type something here..."
+            oninput="$em('#output').html($em('#textInput').val());"
+        />
+
+        <!-- Div to display input dynamically -->
+        <div id="output">Waiting for input...</div>
+
+        <!-- Script that includes the $em library -->
+        <script src="em_a.js"></script>
+        <script>
+            // Document ready check
+            $em(document).ready(function () {
+                console.log("Document is ready!");
+                // Initialize the output with the current value of the input (if any)
+                $em("#output").html($em("#textInput").val());
+            });
+
+            // Additional functionality for testing other aspects of the library
+            // For example, changing the text color on focus
+            $em("#textInput").click(function () {
+                $em("#output").css("color", "red");
+            });
+
+            // Optionally, to demonstrate more of $em functionalities:
+            $em("#textInput").val("Type here!"); // Set initial value when document is ready
+            console.log($em("#textInput").val()); // Log current value to console
+        </script>
+    </body>
+</html>
